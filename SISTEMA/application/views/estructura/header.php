@@ -2,7 +2,44 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-<head >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+	<title>MEDICINA NATURAL</title>
+
+  
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/headers.css">
+	<h1 align="center" class=" p-3 mb-3 bg-dark text-white"> Medicina Natural en Bolivia </h1>
+    
+    <!-- Bootstrap -->
+    <link href="template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="template/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="template/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="template/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="template/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="template/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="template/build/css/custom.min.css" rel="stylesheet">
+
+    
+  
+  </head>
+<!--
+  <head >
+  
 	<meta charset="utf-8">
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -14,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/headers.css">
 	<h1 align="center" class=" p-3 mb-3 bg-dark text-white"> Medicina Natural en Bolivia <br> </h1>
 </head>
-<body>
+<body> 
   <header class="p-2 mb-2 bg-secondary border-bottom"
     
     div class="container">
@@ -50,4 +87,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
     </div>
-  </header>
+  </header>-->
