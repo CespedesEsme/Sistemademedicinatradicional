@@ -1,8 +1,11 @@
  
 
    <body class="nav-md">
+  
     <div class="container body">
+   
       <div class="main_container">
+       
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -32,7 +35,10 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
+                     <li><a href="<?php echo base_url();?>index.php/planta/indeX" >PLANTAS MEDICINALES</a></li>
+                      <li><?php  echo form_open_multipart('planta/index') ?>
+                              <button type="submit" >Planta</button>
+                              <?php echo form_close(); ?></li>
                       <li><a href="index2.html">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
@@ -238,15 +244,20 @@
                   </ul>
                 </li>
               </ul>
+             
             </nav>
+            
           </div>
+          
           </div>
+          
         <!-- /top navigation -->
       
 
 
         <!-- page content -->
-        <div class="right_col" role="main">
+       
+        
 
 
 

@@ -1,5 +1,4 @@
-<div class="container-fluid">
-    <div class="row">
+
     
     <div class="col-md-12">
             <div class="row md-12">
@@ -15,19 +14,7 @@
                         </div>
                         
     
-                        <div class="col-md-1">
-                        
-                            <?php echo form_open_multipart('plantas/listapdf'); ?>
-                            <button type="submit" name="buton2" class="btn btn-dark">Reporte en pdf</button>
-                             <?php echo form_close(); ?>
-                        </div>
-                        <div class="col-md-1">
-                        
-                        <?php echo form_open_multipart('plantas/listaxlsx'); ?>
-                              <button type="submit" name="buton2" class="btn btn-dark">Reporte en xlsx</button>
-                     <?php echo form_close(); ?>
-                          </div>
-                      </div>
+                   </div>
     </div>
     
     
@@ -44,8 +31,7 @@
                         <th scope="col">EFECTOS</th>
                         <th scope="col">PREPARACION</th>
                         <th scope="col">MODIFICAR</th>
-                        <th scope="col">ELIMINAR</th>
-                        <th scope="col">DESABILITAR</th>
+                        
     
     
     
@@ -93,24 +79,28 @@
                             <td><?php echo $row->preparado;?></td>
                             
                             <td>
-                             <?php echo form_open_multipart("plantas/modificar"); ?>			     	
+                                <li>
+                                  <?php echo form_open_multipart("plantas/modificar"); ?>			     	
                                   <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
-                                  <input type="submit" name="buttonmodificar" value="Modificar" class="btn btn-success">
+                                  <input type="submit" name="buttonmodificar" value="Modificar" class="btn btn-success btn-sm btn-block">
                               <?php echo form_close(); ?>
-                          </td>
-                          <td>
-                          <?php echo form_open_multipart("plantas/eliminarbd"); ?>
+                            
+                                </li>
+                                <li>
+                                <?php echo form_open_multipart("plantas/eliminarbd"); ?>
                               <input type="hidden" name="idPlantas" value="<?php echo $row->Id; ?>">
-                              <input type="submit" name="buttoneliminar" value="Eliminar" class="btn btn-danger">
+                              <input type="submit" name="buttoneliminar" value="Eliminar"  class="btn btn-danger btn-sm btn-block">
                           <?php echo form_close();?>
-                          </td>
-                           <td>
-                          <?php echo form_open_multipart("plantas/deshabilitarbd"); ?>
+                                </li>
+                                <li>    
+                                <?php echo form_open_multipart("plantas/deshabilitarbd"); ?>
                               <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
-                              <input type="submit" name="buttondeshabilitar" value="Deshabilitar" class="btn btn-warning">
+                              <input type="submit" name="buttondeshabilitar" value="Deshabilitar" class="btn btn-warning btn-sm btn-block">
                           <?php echo form_close();?>
+                                </li>
+                             
                           </td>
-                          
+                                                
     
     
     
@@ -124,8 +114,7 @@
                 </table>
                 </div>
         
-    </div>
-    </div>
+    
             
         
         
