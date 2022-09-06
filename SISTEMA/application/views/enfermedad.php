@@ -81,16 +81,21 @@
                             <td>
                                 <li>
                                   <?php echo form_open_multipart("planta/modificar"); ?>			     	
-                                  <input type="hidden" name="idplanta" value="<?php echo $row->Id; ?>">
+                                  <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
                                   <input type="submit" name="buttonmodificar" value="Modificar" class="btn btn-success btn-sm btn-block">
                               <?php echo form_close(); ?>
                             
                                 </li>
-                                
+                                <li>
+                                <?php echo form_open_multipart("plantas/eliminarbd"); ?>
+                              <input type="hidden" name="idPlantas" value="<?php echo $row->Id; ?>">
+                              <input type="submit" name="buttoneliminar" value="Eliminar"  class="btn btn-danger btn-sm btn-block">
+                          <?php echo form_close();?>
+                                </li>
                                 <li>    
-                                <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
+                                <?php echo form_open_multipart("plantas/deshabilitarbd"); ?>
                               <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
-                              <input type="submit" name="buttondeshabilitar" value="deshabilitar" class="btn btn-warning btn-sm btn-block">
+                              <input type="submit" name="buttondeshabilitar" value="Deshabilitar" class="btn btn-warning btn-sm btn-block">
                           <?php echo form_close();?>
                                 </li>
                              

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/headers.css">
 	<div>
-  <h3 align="center" class=" p-3 mb-3 bg-dark text-white"> Medicina Natural en Bolivia </h3>
+  <h3 align="center" class=" p-3 mb-3 bg-dark text-white"> MEDICINA TRADICIONAL</h3>
   </div>
     <!-- Bootstrap -->
     <link href="<?php echo base_url();?>template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,6 +41,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Bootstrap core CSS -->
 <link href="<?php echo base_url();?>boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 
      
     <!-- Custom styles for this template -->
@@ -84,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>MENU GENERAL</h3>
               <ul class="nav side-menu">
 
-              <li><a><i class="fa fa-home"></i> PAGINA PRINCIPAL </a>
+              <li><a href="<?php echo base_url();?>index.php/inicio/index" ><i class="fa fa-home"></i> PAGINA PRINCIPAL </a>
                  </li>
 
                 <li><a><i class="fa fa-pagelines"></i> MEDICINA TRADICIONAL <span class="fa fa-chevron-down"></span></a>
@@ -102,26 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </ul>
                 </li>
                 
-                <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="general_elements.html">General Elements</a></li>
-                    <li><a href="media_gallery.html">Media Gallery</a></li>
-                    <li><a href="typography.html">Typography</a></li>
-                    <li><a href="icons.html">Icons</a></li>
-                    <li><a href="glyphicons.html">Glyphicons</a></li>
-                    <li><a href="widgets.html">Widgets</a></li>
-                    <li><a href="invoice.html">Invoice</a></li>
-                    <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="tables.html">Tables</a></li>
-                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                  </ul>
-                </li>
-               
+                              
                 <li><a><i class="fa fa-clone"></i>REPORTES<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="fixed_sidebar.html">REPORTES 1</a></li>
@@ -176,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">John Doe
+                <img src="  <?php echo base_url();?>img/usuario.svg" alt="mdo" width="50" height="50" class="rounded-circle"> Usuario
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -264,54 +260,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         <div class="right_col" role="main">
-<!--
-  <head >
-  
-	<meta charset="utf-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Esmeralda Cespedes Merida">
-    <meta name="generator" content="version 0.5">
-	<title>MEDICINA NATURAL</title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>bootstrap/css/headers.css">
-	<h1 align="center" class=" p-3 mb-3 bg-dark text-white"> Medicina Natural en Bolivia <br> </h1>
-</head>
-<body> 
-  <header class="p-2 mb-2 bg-secondary border-bottom"
-    
-    div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-              
-          <img src=" <?php echo base_url();?>img/plantas.png"  width="200" height="70" >
-       
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-3 justify-content-center mb-md-0">
-          <li><a href="<?php echo base_url();?>index.php/plantas/index" class="nav-link px-4 link-dark">PLANTAS MEDICINALES</a></li>
-          <li><a href="<?php echo base_url();?>index.php/saberes/index" class="nav-link px-3 link-dark">SABERES ANCESTRALES</a></li>
-          <li><a href="#" class="nav-link px-3 link-dark">DIAGNOSTICO</a></li>
-         
-        </ul>
-
-        <form class="col-12 col-lg-auto mb-4 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
-
-         <div >
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="  <?php echo base_url();?>img/usuario.svg" alt="mdo" width="50" height="50" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Configuracion</a></li>
-            <li><a class="dropdown-item" href="#">Ajustes</a></li>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="">
-              <?php echo form_open_multipart('usuarios/logout'); ?>
-      <button type="submit" class="btn btn-danger">cerrar sesion</button>
-      <?php form_close(); ?> </a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>-->
+ 

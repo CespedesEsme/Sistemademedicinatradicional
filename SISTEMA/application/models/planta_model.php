@@ -8,36 +8,32 @@ class planta_model extends CI_Model {
 	{
 		
 		$this->db->select('*');
-		$this->db->from('plantas');
+		$this->db->from('planta');
 		return $this->db->get();
 	}
 
 
-
-
-	public function agregarplantas($data)
+	public function agregarplanta($data)
 	{
-		$this->db->insert('plantas',$data);
+		$this->db->insert('planta',$data);
 		
 	}
 
-public function eliminarplantas($idplantas)
-	{
-		$this->db->where('Id',$idplantas);
-		$this->db->delete('plantas');
-		
-	}
-	public function recuperarplantas($idplantas)
+
+	public function recuperarplanta($idplantas)
 	{
 		$this->db->select('*');
-		$this->db->from('plantas');
+		$this->db->from('planta');
 		$this->db->where('Id',$idplantas);
 		return $this->db->get();
 	}
-	public function modificarplantas($idplantas,$data)
+	public function modificarplanta($idplantas,$data)
 	{
 		$this->db->where('Id',$idplantas);
-		$this->db->update('plantas',$data);		
+		$this->db->update('planta',$data);		
 	}
+
+
+	
 
 }
