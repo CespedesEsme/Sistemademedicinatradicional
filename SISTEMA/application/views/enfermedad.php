@@ -3,13 +3,13 @@
     <div class="col-sm-12">
             <div class="row sm-12">
             
-            <h1 align="center">MEDICINAS NATURALES</h1>
+            <h1 align="center">ENFERMEDADES</h1>
     
                      <div class="row md-12">
                           <div class="row md-12">
                           <div class="col-md-10">
                               <?php  echo form_open_multipart('planta/agregar') ?>
-                              <button type="submit" class="btn btn-dark">Agregar nueva Medicina</button>
+                              <button type="submit" class="btn btn-dark">Agregar nueva Enfermedad</button>
                               <?php echo form_close(); ?>
                         </div>
                         
@@ -26,10 +26,8 @@
                         <th scope="col">IMAGEN</th>
                         <th scope="col">NOMBRE</th>
                         <th scope="col">DESCRIPCION</th>
-                        <th scope="col">TIPO</th>
-                        <th scope="col">RECOMENDACION</th>
-                        <th scope="col">EFECTOS</th>
-                        <th scope="col">PREPARACION</th>
+                        <th scope="col">CAUSAS</th>
+                        <th scope="col">PRECAUCIONES</th>
                         <th scope="col">EDICION</th>
                         
     
@@ -73,10 +71,10 @@
                             </td>
                             <td><?php echo $row->nombre;?></td>
                             <td><?php echo $row->descripcion;?></td>
-                            <td><?php echo $row->tipo;?></td>
-                            <td><?php echo $row->recomendacion;?></td>
                             <td><?php echo $row->efectos;?></td>
-                            <td><?php echo $row->preparado;?></td>
+                            <td><?php echo $row->recomendacion;?></td>
+                            
+                            
                             
                             <td>
                                 <li>

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-class planta extends CI_Controller {
+class enfermedad extends CI_Controller {
 
     public function index()
 { 
@@ -13,7 +13,7 @@ class planta extends CI_Controller {
     $data['planta']=$lista;
 
     $this->load->view('estructura/header');
-    $this->load->view('plantaMedicinal',$data);
+    $this->load->view('enfermedad',$data);
     $this->load->view('estructura/footer');
 
 
