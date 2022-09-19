@@ -8,7 +8,7 @@
                      <div class="row md-12">
                           <div class="row md-12">
                           <div class="col-md-10">
-                              <?php  echo form_open_multipart('planta/agregar') ?>
+                              <?php  echo form_open_multipart('enfermedad/agregar') ?>
                               <button type="submit" class="btn btn-dark">Agregar nueva Enfermedad</button>
                               <?php echo form_close(); ?>
                         </div>
@@ -27,7 +27,6 @@
                         <th scope="col">NOMBRE</th>
                         <th scope="col">DESCRIPCION</th>
                         <th scope="col">CAUSAS</th>
-                        <th scope="col">PRECAUCIONES</th>
                         <th scope="col">EDICION</th>
                         
     
@@ -38,7 +37,7 @@
                 <tbody>
                     <?php 
                     $indice=1;
-                    foreach ($planta->result() as $row) {
+                    foreach ($enfermedad->result() as $row) {
                         ?>
                              <tr>
                             <th scope="row"><?php echo $indice;?></th>
@@ -71,28 +70,22 @@
                             </td>
                             <td><?php echo $row->nombre;?></td>
                             <td><?php echo $row->descripcion;?></td>
-                            <td><?php echo $row->efectos;?></td>
-                            <td><?php echo $row->recomendacion;?></td>
-                            
+                            <td><?php echo $row->causas;?></td>
+                           
                             
                             
                             <td>
                                 <li>
-                                  <?php echo form_open_multipart("planta/modificar"); ?>			     	
-                                  <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
+                                  <?php echo form_open_multipart("enfermedad/modificar"); ?>			     	
+                                  <input type="hidden" name="idEnfermedad" value="<?php echo $row->idEnfermedad; ?>">
                                   <input type="submit" name="buttonmodificar" value="Modificar" class="btn btn-success btn-sm btn-block">
                               <?php echo form_close(); ?>
                             
                                 </li>
-                                <li>
-                                <?php echo form_open_multipart("plantas/eliminarbd"); ?>
-                              <input type="hidden" name="idPlantas" value="<?php echo $row->Id; ?>">
-                              <input type="submit" name="buttoneliminar" value="Eliminar"  class="btn btn-danger btn-sm btn-block">
-                          <?php echo form_close();?>
-                                </li>
+                               
                                 <li>    
-                                <?php echo form_open_multipart("plantas/deshabilitarbd"); ?>
-                              <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
+                                <?php echo form_open_multipart("enfermedad/deshabilitarbd"); ?>
+                              <input type="hidden" name="idEnfermedad" value="<?php echo $row->idEnfermedad; ?>">
                               <input type="submit" name="buttondeshabilitar" value="Deshabilitar" class="btn btn-warning btn-sm btn-block">
                           <?php echo form_close();?>
                                 </li>

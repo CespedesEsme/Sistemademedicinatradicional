@@ -7,14 +7,21 @@ class planta extends CI_Controller {
 
     public function index()
 { 
-    
+   /* if($this->session->userdata('cargo')=='naturista')
+		{*/
     
     $lista=$this->planta_model->listaplanta();
-    $data['planta']=$lista;
+    $data['medicinanatural']=$lista;
 
     $this->load->view('estructura/header');
     $this->load->view('plantaMedicinal',$data);
     $this->load->view('estructura/footer');
+/*}
+else
+{
+	
+	redirect('planta/usuario','refresh');
+}*/
 
 
     }
@@ -22,37 +29,17 @@ class planta extends CI_Controller {
 
 
 
-    /* public function index()
-	{ 
-		if($this->session->userdata('tipo')=='admin')
-		{
-
-		$lista=$this->plantas_model->listaplantas();
-		$data['plantas']=$lista;
-
-		$this->load->view('estructura/inc_header');
-		$this->load->view('lista_plantas',$data);
-		$this->load->view('estructura/inc_footer');
-		}
-		else
-		{
-			
-			redirect('plantas/usuario','refresh');
-		}
-		
-	} */
 
 	public function usuario()
 	{
-		if($this->session->userdata('tipo')=='usuario')
-		{
-			$lista=$this->plantas_model->listaplantas();
-			$data['plantas']=$lista;
+		/*if($this->session->userdata('tipo')=='usuario')
+		{*/
+			
 
 			$this->load->view('estructura/header');
-			$this->load->view('plantasusuario',$data);
+			$this->load->view('inicio');
 			$this->load->view('estructura/footer');
-		}
+		/*}*/
 		
 	}
 
@@ -67,16 +54,17 @@ public function agregar()
 public function agregarbd()
 	{
 		
-		$data['nombre']=$_POST['nombre'];
+		$data['nombres']=$_POST['nombre'];
 		$data['descripcion']=$_POST['descripcion'];
-		$data['tipo']=$_POST['tipo'];
-		$data['recomendacion']=$_POST['recomendacion'];
+		$data['tipo']=$_POST['tipo'];	
 		$data['efectos']=$_POST['efectos'];
-		$data['preparado']=$_POST['preparado'];
-
+		$data['preparados']=$_POST['preparado'];
+		$data['recomendaciones']=$_POST['recomendacion'];
+				
 		$lista=$this->planta_model->agregarplanta($data);
-
+	
 		redirect('planta/index','refresh');
+		
 	}
 
 	
@@ -94,14 +82,14 @@ public function modificar()
 	public function modificarbd()
 	{
 
-		$idplantas=$_POST['idplanta'];
-		$data['nombre']=$_POST['nombre'];
+		$idmedicina=$_POST['idplanta'];
+		$data['nombres']=$_POST['nombre'];
 		$data['descripcion']=$_POST['descripcion'];
 		$data['tipo']=$_POST['tipo'];
-		$data['recomendacion']=$_POST['recomendacion'];
 		$data['efectos']=$_POST['efectos'];
-		$data['preparado']=$_POST['preparado'];
-		$nombrearchivo=$idplantas.".jpg";
+		$data['preparados']=$_POST['preparado'];
+		$data['recomendaciones']=$_POST['recomendacion'];
+		$nombrearchivo=$idmedicina.".jpg";
 		//ruta donde se guardan los archivos
 		$config['upload_path']='./uploads/';
 		//nombre del archivo
@@ -129,7 +117,7 @@ public function modificar()
 		}
 
 
-		$lista=$this->planta_model->modificarplanta($idplantas,$data);
+		$lista=$this->planta_model->modificarplanta($idmedicina,$data);
 		$this->upload->data();
 		redirect('planta/index','refresh');
 		

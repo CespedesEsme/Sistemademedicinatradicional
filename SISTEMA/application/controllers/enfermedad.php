@@ -9,11 +9,11 @@ class enfermedad extends CI_Controller {
 { 
     
     
-    $lista=$this->planta_model->listaplanta();
-    $data['planta']=$lista;
+    $lista=$this->enfermedad_model->listaenfermedad();
+    $data['enfermedad']=$lista;
 
     $this->load->view('estructura/header');
-    $this->load->view('enfermedad',$data);
+    $this->load->view('listaenfermedad',$data);
     $this->load->view('estructura/footer');
 
 
@@ -60,7 +60,7 @@ public function agregar()
 	{ 
 		
 		$this->load->view('estructura/header');
-		$this->load->view('form_planta');
+		$this->load->view('form_enfermedad');
 		$this->load->view('estructura/footer');
 	}
 
@@ -69,24 +69,22 @@ public function agregarbd()
 		
 		$data['nombre']=$_POST['nombre'];
 		$data['descripcion']=$_POST['descripcion'];
-		$data['tipo']=$_POST['tipo'];
-		$data['recomendacion']=$_POST['recomendacion'];
-		$data['efectos']=$_POST['efectos'];
-		$data['preparado']=$_POST['preparado'];
+		$data['causas']=$_POST['causas'];
+		
 
-		$lista=$this->planta_model->agregarplanta($data);
+		$lista=$this->enfermedad_model->agregarenfermedad($data);
 
-		redirect('planta/index','refresh');
+		redirect('enfermedad/index','refresh');
 	}
 
 	
 public function modificar()
 	{
-		$idplantas=$_POST['idplanta'];
-		$data['infoplanta']=$this->planta_model->recuperarplanta($idplantas);
+		$idEnfermedad=$_POST['idEnfermedad'];
+		$data['infoenfermedad']=$this->enfermedad_model->recuperarenfermedad($idEnfermedad);
 
 		$this->load->view('estructura/header');
-		$this->load->view('modificar_planta',$data);
+		$this->load->view('modificar_enfermedad',$data);
 		$this->load->view('estructura/footer');
 		
 	}
@@ -94,14 +92,12 @@ public function modificar()
 	public function modificarbd()
 	{
 
-		$idplantas=$_POST['idplanta'];
+		$idEnfermedad=$_POST['idEnfermedad'];
 		$data['nombre']=$_POST['nombre'];
 		$data['descripcion']=$_POST['descripcion'];
-		$data['tipo']=$_POST['tipo'];
-		$data['recomendacion']=$_POST['recomendacion'];
-		$data['efectos']=$_POST['efectos'];
-		$data['preparado']=$_POST['preparado'];
-		$nombrearchivo=$idplantas.".jpg";
+		$data['causas']=$_POST['causas'];
+		
+		$nombrearchivo=$idEnfermedad.".jpg";
 		//ruta donde se guardan los archivos
 		$config['upload_path']='./uploads/';
 		//nombre del archivo
@@ -129,20 +125,20 @@ public function modificar()
 		}
 
 
-		$lista=$this->planta_model->modificarplanta($idplantas,$data);
+		$lista=$this->enfermedad_model->modificarenfermedad($idEnfermedad,$data);
 		$this->upload->data();
-		redirect('planta/index','refresh');
+		redirect('enfermedad/index','refresh');
 		
 	}
 
 	public function deshabilitarbd()
 	{
 
-        $idplantas=$_POST['idplantas'];
+        $idEnfermedad=$_POST['idEnfermedad'];
 		$data['estado']='0';
 		
-		$this->planta_model->modificarplanta($idplantas,$data);
-		redirect('planta/index','refresh');
+		$this->planta_model->modificarenfermedad($idEnfermedad,$data);
+		redirect('enfermedad/index','refresh');
 	}
 
 

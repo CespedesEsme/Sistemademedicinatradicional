@@ -26,12 +26,10 @@
                         <th scope="col">IMAGEN</th>
                         <th scope="col">NOMBRE</th>
                         <th scope="col">DESCRIPCION</th>
-                        <th scope="col">TIPO</th>
-                        <th scope="col">RECOMENDACION</th>
                         <th scope="col">EFECTOS</th>
                         <th scope="col">PREPARACION</th>
+                        <th scope="col">RECOMENDACION</th>
                         <th scope="col">EDICION</th>
-                        
     
     
     
@@ -40,7 +38,7 @@
                 <tbody>
                     <?php 
                     $indice=1;
-                    foreach ($planta->result() as $row) {
+                    foreach ($medicinanatural->result() as $row) {
                         ?>
                              <tr>
                             <th scope="row"><?php echo $indice;?></th>
@@ -71,17 +69,17 @@
                               }
                             ?>
                             </td>
-                            <td><?php echo $row->nombre;?></td>
+                            <td><?php echo $row->nombres;?></td>
                             <td><?php echo $row->descripcion;?></td>
-                            <td><?php echo $row->tipo;?></td>
-                            <td><?php echo $row->recomendacion;?></td>
+                                                     
                             <td><?php echo $row->efectos;?></td>
-                            <td><?php echo $row->preparado;?></td>
+                            <td><?php echo $row->preparados;?></td>
+                            <td><?php echo $row->recomendaciones;?></td>
                             
                             <td>
                                 <li>
                                   <?php echo form_open_multipart("planta/modificar"); ?>			     	
-                                  <input type="hidden" name="idplanta" value="<?php echo $row->Id; ?>">
+                                  <input type="hidden" name="idplanta" value="<?php echo $row->idmedicina; ?>">
                                   <input type="submit" name="buttonmodificar" value="Modificar" class="btn btn-success btn-sm btn-block">
                               <?php echo form_close(); ?>
                             
@@ -89,7 +87,7 @@
                                 
                                 <li>    
                                 <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
-                              <input type="hidden" name="idplantas" value="<?php echo $row->Id; ?>">
+                              <input type="hidden" name="idplantas" value="<?php echo $row->idmedicina; ?>">
                               <input type="submit" name="buttondeshabilitar" value="deshabilitar" class="btn btn-warning btn-sm btn-block">
                           <?php echo form_close();?>
                                 </li>

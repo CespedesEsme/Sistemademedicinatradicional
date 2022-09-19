@@ -7,8 +7,7 @@ class inicio extends CI_Controller {
 	{
 		
     $this->load->view('estructura/header');
-    
-    $this->load->view('inicio');
+     $this->load->view('inicio');
     $this->load->view('estructura/footer');
 	}
 }

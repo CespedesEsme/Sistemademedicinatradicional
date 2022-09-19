@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row mt-5">
-				<div class="col-md-12 text-center">
-					<h3>Modificar </h3>
+		<div class="col-sm-12">
+			<div class="row sm-5">
+				<div class="col-sm-12 text-center">
+					<h3><b>Modificar<b> </h3>
 				</div>
 			</div>
 <?php 
@@ -13,8 +13,8 @@
 			<div class="row sm-4">
 				<div class="col-sm-4">
 				<label>Nombre:</label><br>
-					<input class="form-control" type="text" name="nombre"placeholder="Ingrese el nombre de la planta" value="<?php echo $row->nombre; ?>"><br>
-					<input class="form-control" type="hidden" name="idplanta" value="<?php echo $row->Id; ?>">
+					<input class="form-control" type="text" name="nombre"placeholder="Ingrese el nombre de la planta" value="<?php echo $row->nombres; ?>"><br>
+					<input class="form-control" type="hidden" name="idplanta" value="<?php echo $row->idmedicina; ?>">
 					
 				</div>
 				<div class="col-sm-8">
@@ -32,7 +32,7 @@
 				<div class="col-sm-8">
 			
                         <label >Recomendaciones</label>
-                        <input class="form-control" type="text" name="recomendacion"value="<?php echo $row->recomendacion; ?>"><br>
+                        <input class="form-control" type="text" name="recomendacion"value="<?php echo $row->recomendaciones; ?>"><br>
 				</div>
             </div>
 				
@@ -43,7 +43,7 @@
 				</div>
 				<div class="col-sm-8">
                 <label>Preparado:</label><br>
-					<input class="form-control" type="text" name="preparado"value="<?php echo $row->preparado; ?>"><br>
+					<input class="form-control" type="text" name="preparado"value="<?php echo $row->preparados; ?>"><br>
 				</div>
 
                 </div>

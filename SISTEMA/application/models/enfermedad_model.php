@@ -20,20 +20,17 @@ class enfermedad_model extends CI_Model {
 	}
 
 
-	public function recuperarenfermedad($idenfermedad)
+	public function recuperarenfermedad($idEnfermedad)
 	{
 		$this->db->select('*');
 		$this->db->from('enfermedad');
-		$this->db->where('Id',$idenfermedad);
+		$this->db->where('idEnfermedad',$idEnfermedad);
 		return $this->db->get();
 	}
-	public function modificarenfermedad($idenfermedad,$data)
+	public function modificarenfermedad($idEnfermedad,$data)
 	{
-		$this->db->where('Id',$idenfermedad);
+		$this->db->where('idEnfermedad',$idEnfermedad);
 		$this->db->update('enfermedad',$data);		
 	}
-
-
-	
 
 }

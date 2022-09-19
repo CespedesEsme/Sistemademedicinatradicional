@@ -34,10 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url();?>template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url();?>template/build/css/custom.min.css" rel="stylesheet">
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-
-    
+  
+   <link href="<?php echo base_url();?>bootstrap/css/carousel.css" rel="stylesheet">
+ 
 
     <!-- Bootstrap core CSS -->
 <link href="<?php echo base_url();?>boostrap/assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,6 +55,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
       }
     </style>
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
 
      
     <!-- Custom styles for this template -->
@@ -113,7 +128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   
 
                     <li><a href="<?php echo base_url();?>index.php/planta/indeX"> MEDICINA NATURAL</a></li>
-                    <li><a href="<?php echo base_url();?>index.php/planta/indeX"> ENFERMEDADES </a></li>
+                    <li><a href="<?php echo base_url();?>index.php/enfermedad/indeX"> ENFERMEDADES </a></li>
                   </ul>
                 </li>
                 
@@ -181,7 +196,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <span>Settings</span>
                     </a>
                 <a class="dropdown-item"  href="javascript:;">Help</a>
-                  <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <a class="dropdown-item"  href="<?php echo base_url();?>index.php/usuario/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
               </li>
 

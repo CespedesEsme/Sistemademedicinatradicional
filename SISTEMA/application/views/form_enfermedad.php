@@ -3,10 +3,10 @@
 		<div class="col-sm-12">
 			<div class="row sm-5">
 				<div class="col-sm-12 text-center">
-					<h3>Registro de una nueva Medicina Natural</h3>
+					<h3>Registro de una nueva Enfermedad</h3>
 				</div>
 			</div>
-			<?php echo form_open_multipart('planta/agregarbd');?><br>
+			<?php echo form_open_multipart('enfermedad/agregarbd');?><br>
 			<div class="row sm-4">
 				<div class="col-sm-4">
 					<label>Nombre:</label><br>
@@ -20,38 +20,16 @@
 				</div>
 				</div>
 			<div class="row">
-            <div class="col-sm-4">
-					<label>Tipo:</label><br>
-					<!-- <input class="form-control" type="text" name="tipo" required><br>-->
-                    <select class="form-control" type="text" name="tipo" required>
-                          <option>Hojas</option>
-                          <option>Flor</option>
-                          <option>Arbol</option>
-                          <option>Rosa</option>
-                    </select>
-				</div>
+            
                 <div class="col-sm-8">
                 <div class="form-group">
-                        <label >Recomendaciones</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"  type="text" name="recomendacion" required></textarea>
+                        <label >Causas</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"  type="text" name="causas" required></textarea>
                     </div>
 				</div>
 			</div>
 
-				
-				<div class="row">
-                <div class="col-sm-4">
-					<label >Efectos</label><br>
-					<input class="form-control" type="text" name="efectos" required><br>
-				</div>
-				<div class="col-sm-8">
-                <div class="form-group">
-                        <label >Preparacion</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"  type="text" name="preparado" required></textarea>
-                    </div>
-				</div>
-
-                </div>
+			
 			</div>
 			
         

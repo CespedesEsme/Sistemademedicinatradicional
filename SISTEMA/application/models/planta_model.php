@@ -8,14 +8,14 @@ class planta_model extends CI_Model {
 	{
 		
 		$this->db->select('*');
-		$this->db->from('planta');
+		$this->db->from('medicinanatural');
 		return $this->db->get();
 	}
 
 
 	public function agregarplanta($data)
 	{
-		$this->db->insert('planta',$data);
+		$this->db->insert('medicinanatural',$data);
 		
 	}
 
@@ -23,14 +23,14 @@ class planta_model extends CI_Model {
 	public function recuperarplanta($idplantas)
 	{
 		$this->db->select('*');
-		$this->db->from('planta');
-		$this->db->where('Id',$idplantas);
+		$this->db->from('medicinanatural');
+		$this->db->where('idmedicina',$idplantas);
 		return $this->db->get();
 	}
-	public function modificarplanta($idplantas,$data)
+	public function modificarplanta($idmedicina,$data)
 	{
-		$this->db->where('Id',$idplantas);
-		$this->db->update('planta',$data);		
+		$this->db->where('idmedicina',$idmedicina);
+		$this->db->update('medicinanatural',$data);		
 	}
 
 

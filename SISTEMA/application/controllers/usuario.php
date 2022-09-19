@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class usuarios extends CI_Controller {
+class usuario extends CI_Controller {
 
 
 	public function index()
@@ -10,7 +10,7 @@ class usuarios extends CI_Controller {
 		if($this->session->userdata('login'))
 		{
 			//el usuario ya esta logueado
-			redirect('usuarios/panel','refresh');
+			redirect('usuario/panel','refresh');
 		}
 		else
 		{
@@ -26,24 +26,24 @@ class usuarios extends CI_Controller {
 		$login=$_POST['login'];
 		$pasword=md5($_POST['pasword']);
 
-		$consulta=$this->Usuario_model->validar($login,$pasword);
+		$consulta=$this->usuario_model->validar($login,$pasword);
 
 		if($consulta->num_rows()>0)
 		{
 			//tenemos una validacion efectiva
 			foreach ($consulta->result() as $row) 
 			{
-				$this->session->set_userdata('idusuario',$row->idusuario);
+				$this->session->set_userdata('idUsuario',$row->idUsuario);
 				$this->session->set_userdata('login',$row->login);
-				$this->session->set_userdata('tipo',$row->tipo);
-				redirect('usuarios/panel','refresh');
+				$this->session->set_userdata('cargo',$row->cargo);
+				redirect('usuario/panel','refresh');
 			}
 		}
 
 		else
 		{
 			//no hay validacion efectiva y redirigimos a login
-			redirect('usuarios/index/2','refresh');
+			//redirect('usuario/index/2','refresh');
 		}
 	}
 
@@ -51,27 +51,27 @@ class usuarios extends CI_Controller {
 	{
 		if($this->session->userdata('login'))
 		{
-			if($this->session->userdata('tipo')=='admin')
+			if($this->session->userdata('cargo')=='naturista')
 			{
 			//el usuario ya esta logueado
-				redirect('plantas/index','refresh');
+				redirect('planta/index','refresh');
 			}
 			else
 			{
-				redirect('plantas/usuario','refresh');
+				redirect('planta/usuario','refresh');
 			}
 		}
 		else
 		{
 			//el usuario no esta logueado
-			redirect('usuarios/index/3','refresh');
+			redirect('usuario/index/3','refresh');
 		}
 	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('usuarios/index/1','refresh');
+		redirect('usuario/index/1','refresh');
 	}
 
 
