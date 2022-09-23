@@ -7,41 +7,13 @@ class enfermedad extends CI_Controller {
 
     public function index()
 { 
-    
-    
     $lista=$this->enfermedad_model->listaenfermedad();
     $data['enfermedad']=$lista;
 
     $this->load->view('estructura/header');
     $this->load->view('listaenfermedad',$data);
     $this->load->view('estructura/footer');
-
-
     }
-    
-
-
-
-    /* public function index()
-	{ 
-		if($this->session->userdata('tipo')=='admin')
-		{
-
-		$lista=$this->plantas_model->listaplantas();
-		$data['plantas']=$lista;
-
-		$this->load->view('estructura/inc_header');
-		$this->load->view('lista_plantas',$data);
-		$this->load->view('estructura/inc_footer');
-		}
-		else
-		{
-			
-			redirect('plantas/usuario','refresh');
-		}
-		
-	} */
-
 	public function usuario()
 	{
 		if($this->session->userdata('tipo')=='usuario')
@@ -52,8 +24,7 @@ class enfermedad extends CI_Controller {
 			$this->load->view('estructura/header');
 			$this->load->view('plantasusuario',$data);
 			$this->load->view('estructura/footer');
-		}
-		
+		}		
 	}
 
 public function agregar()
@@ -99,10 +70,10 @@ public function modificar()
 		
 		$nombrearchivo=$idEnfermedad.".jpg";
 		//ruta donde se guardan los archivos
-		$config['upload_path']='./uploads/';
+		$config['upload_path']='./uploads/enfermedadades';
 		//nombre del archivo
 		$config['file_name']=$nombrearchivo;
-		$direccion="./uploads/".$nombrearchivo;
+		$direccion="./uploads/enfermedadades".$nombrearchivo;
 
 		if (file_exists($direccion)) 
 		{

@@ -1,5 +1,3 @@
-
-    
     <div class="col-sm-12">
             <div class="row sm-12">
             
@@ -16,9 +14,7 @@
     
                    </div>
     </div>
-    
-    
-        
+      
     <table class="table mt-4">
                 <thead class="thead-dark">
                     <tr>
@@ -28,10 +24,7 @@
                         <th scope="col">DESCRIPCION</th>
                         <th scope="col">CAUSAS</th>
                         <th scope="col">EDICION</th>
-                        
-    
-    
-    
+            
                     </tr>
                 </thead>
                 <tbody>
@@ -44,36 +37,26 @@
                             <td>
                                 <?php
                               $foto =$row->foto;
-                              
-                             
-    
                               if ($foto=="") 
                               {
                                 ?>
-                                <img src=" <?php echo base_url();?>uploads/1.jpg" width="100px">
+                                <img src=" <?php echo base_url();?>uploads/enfermedades/0.jpg" width="100px">
                                 <?php
     
                               }
     
-    
-                            
                               else
                               {
-                                
-    
-                                
+          
                                 ?>
-                                <img src="<?php echo base_url(); ?>/uploads/<?php echo $foto; ?>" width="100px">
+                                <img src="<?php echo base_url(); ?>/uploads/medtra/<?php echo $foto; ?>" width="100px">
                                 <?php
                               }
                             ?>
                             </td>
                             <td><?php echo $row->nombre;?></td>
                             <td><?php echo $row->descripcion;?></td>
-                            <td><?php echo $row->causas;?></td>
-                           
-                            
-                            
+                            <td><?php echo $row->causas;?></td> 
                             <td>
                                 <li>
                                   <?php echo form_open_multipart("enfermedad/modificar"); ?>			     	

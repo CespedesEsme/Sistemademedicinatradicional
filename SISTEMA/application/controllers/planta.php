@@ -7,8 +7,8 @@ class planta extends CI_Controller {
 
     public function index()
 { 
-   /* if($this->session->userdata('cargo')=='naturista')
-		{*/
+   if($this->session->userdata('cargo')=='naturista')
+		{
     
     $lista=$this->planta_model->listaplanta();
     $data['medicinanatural']=$lista;
@@ -16,12 +16,12 @@ class planta extends CI_Controller {
     $this->load->view('estructura/header');
     $this->load->view('plantaMedicinal',$data);
     $this->load->view('estructura/footer');
-/*}
+}
 else
 {
 	
 	redirect('planta/usuario','refresh');
-}*/
+}
 
 
     }
@@ -91,10 +91,10 @@ public function modificar()
 		$data['recomendaciones']=$_POST['recomendacion'];
 		$nombrearchivo=$idmedicina.".jpg";
 		//ruta donde se guardan los archivos
-		$config['upload_path']='./uploads/';
+		$config['upload_path']='./uploads/medtra/';
 		//nombre del archivo
 		$config['file_name']=$nombrearchivo;
-		$direccion="./uploads/".$nombrearchivo;
+		$direccion="./uploads/medtra".$nombrearchivo;
 
 		if (file_exists($direccion)) 
 		{

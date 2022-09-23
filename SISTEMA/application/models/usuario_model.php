@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class usuario_model extends CI_Model {
 	
-	public function validar($login,$pasword)
+	public function validarm($login,$pasword)
 	{
 		$this->db->select('*');  //select *
 		$this->db->from('usuario');   //tabla

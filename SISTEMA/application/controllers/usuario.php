@@ -26,14 +26,14 @@ class usuario extends CI_Controller {
 		$login=$_POST['login'];
 		$pasword=md5($_POST['pasword']);
 
-		$consulta=$this->usuario_model->validar($login,$pasword);
+		$consulta=$this->usuario_model->validarm($login,$pasword);
 
 		if($consulta->num_rows()>0)
 		{
 			//tenemos una validacion efectiva
 			foreach ($consulta->result() as $row) 
 			{
-				$this->session->set_userdata('idUsuario',$row->idUsuario);
+				$this->session->set_userdata('idusuario',$row->idusuario);
 				$this->session->set_userdata('login',$row->login);
 				$this->session->set_userdata('cargo',$row->cargo);
 				redirect('usuario/panel','refresh');
@@ -43,7 +43,7 @@ class usuario extends CI_Controller {
 		else
 		{
 			//no hay validacion efectiva y redirigimos a login
-			//redirect('usuario/index/2','refresh');
+			redirect('usuario/index/2','refresh');
 		}
 	}
 

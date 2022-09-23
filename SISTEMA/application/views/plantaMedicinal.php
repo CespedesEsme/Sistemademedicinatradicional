@@ -16,9 +16,6 @@
     
                    </div>
     </div>
-    
-    
-        
     <table class="table mt-4">
                 <thead class="thead-dark">
                     <tr>
@@ -30,9 +27,7 @@
                         <th scope="col">PREPARACION</th>
                         <th scope="col">RECOMENDACION</th>
                         <th scope="col">EDICION</th>
-    
-    
-    
+   
                     </tr>
                 </thead>
                 <tbody>
@@ -45,26 +40,20 @@
                             <td>
                                 <?php
                               $foto =$row->foto;
-                              
-                             
-    
+                
                               if ($foto=="") 
                               {
                                 ?>
-                                <img src=" <?php echo base_url();?>uploads/1.jpg" width="100px">
+                                <img src=" <?php echo base_url();?>uploads/medtra/0.jpg" width="100px">
                                 <?php
     
                               }
     
-    
-                            
                               else
                               {
-                                
-    
-                                
+                         
                                 ?>
-                                <img src="<?php echo base_url(); ?>/uploads/<?php echo $foto; ?>" width="100px">
+                                <img src="<?php echo base_url(); ?>/uploads/medtra/<?php echo $foto; ?>" width="100px">
                                 <?php
                               }
                             ?>
