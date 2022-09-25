@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="col sm-12" > 
 <center>
   <h3> <b> MEDICINA NATURAL EN BOLIVIA</b></h3>
-   <img src=" <?php echo base_url();?>img/medicina.jpg"  width="500" height="400" >
+   <img src=" <?php echo base_url();?>img/usuario.svg"  width="500" height="400" >
  </center>
 </div>
   </div>
