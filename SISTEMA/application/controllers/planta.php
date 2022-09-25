@@ -7,8 +7,8 @@ class planta extends CI_Controller {
 
     public function index()
 { 
-   if($this->session->userdata('cargo')=='naturista')
-		{
+   //if($this->session->userdata('cargo')=='naturista')
+	///	{
     
     $lista=$this->planta_model->listaplanta();
     $data['medicinanatural']=$lista;
@@ -16,12 +16,12 @@ class planta extends CI_Controller {
     $this->load->view('estructura/header');
     $this->load->view('plantaMedicinal',$data);
     $this->load->view('estructura/footer');
-}
+/*}
 else
 {
 	
 	redirect('planta/usuario','refresh');
-}
+}*/
 
 
     }
