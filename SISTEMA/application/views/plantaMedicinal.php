@@ -77,7 +77,11 @@
                                 <li>    
                                 <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
                               <input type="hidden" name="idplantas" value="<?php echo $row->idmedicina; ?>">
-                              <input type="submit" name="buttondeshabilitar" value="Eliminar" class="btn btn-danger btn-sm btn-block">
+                              <img src="<?php echo base_url();?>/img/eliminar.png" width="30px">
+                              <input type="submit" name="buttondeshabilitar" value=" Eliminar"
+                                 class="btn btn-danger btn-sm btn-block" 
+                              
+                              >
                           <?php echo form_close();?>
                                 </li>
                              
