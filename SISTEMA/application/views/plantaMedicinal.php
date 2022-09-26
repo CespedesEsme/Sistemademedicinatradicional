@@ -73,8 +73,15 @@
                               <?php echo form_close(); ?>
                             
                                 </li>
+                                <li>
+                                <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
+                                <img src="<?php echo base_url();?>/img/eliminar.png" width="30px">
+                                </li>
                                 
                                 <li>    
+                               
+
+
                                 <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
                               <input type="hidden" name="idplantas" value="<?php echo $row->idmedicina; ?>">
                               <img src="<?php echo base_url();?>/img/eliminar.png" width="30px">
