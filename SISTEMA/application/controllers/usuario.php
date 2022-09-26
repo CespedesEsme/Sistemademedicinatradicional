@@ -30,6 +30,13 @@ class usuario extends CI_Controller {
 
 		if($consulta->num_rows()>0)
 		{
+			//no hay validacion efectiva y redirigimos a login
+			redirect('usuario/index/2','refresh');
+		}
+
+		else
+		{
+			
 			//tenemos una validacion efectiva
 			foreach ($consulta->result() as $row) 
 			{
@@ -38,12 +45,6 @@ class usuario extends CI_Controller {
 				$this->session->set_userdata('cargo',$row->cargo);
 				redirect('usuario/panel','refresh');
 			}
-		}
-
-		else
-		{
-			//no hay validacion efectiva y redirigimos a login
-			redirect('usuario/index/2','refresh');
 		}
 	}
 
