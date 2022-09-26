@@ -33,7 +33,7 @@ class usuario extends CI_Controller {
 			//tenemos una validacion efectiva
 			foreach ($consulta->result() as $row) 
 			{
-				$this->session->set_userdata('idUsuario',$row->idUsuario);
+				$this->session->set_userdata('idusuario',$row->idusuario);
 				$this->session->set_userdata('login',$row->login);
 				$this->session->set_userdata('cargo',$row->cargo);
 				redirect('usuario/panel','refresh');
