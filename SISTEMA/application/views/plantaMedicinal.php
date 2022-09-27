@@ -66,6 +66,11 @@
                             <td><?php echo $row->recomendaciones;?></td>
                             
                             <td>
+                            </li>
+                                <li>
+                                <?php echo form_open_multipart("planta/deshabilitarbd"); ?>
+                                <img src="<?php echo base_url();?>/img/editar.png" width="30px">
+                                </li>
                                 <li>
                                   <?php echo form_open_multipart("planta/modificar"); ?>			     	
                                   <input type="hidden" name="idplanta" value="<?php echo $row->idmedicina; ?>">
