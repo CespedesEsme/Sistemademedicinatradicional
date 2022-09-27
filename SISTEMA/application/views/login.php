@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h5 class="text-primary" align="center"><?php echo $mensaje ?></h5>
 
     <?php 
-  echo form_open_multipart('usuario/validar',array('id'=>'form1', 'class'=>'form-control'))
+  echo form_open_multipart('usuario1/validar',array('id'=>'form1', 'class'=>'form-control'))
 
     ?>
 
