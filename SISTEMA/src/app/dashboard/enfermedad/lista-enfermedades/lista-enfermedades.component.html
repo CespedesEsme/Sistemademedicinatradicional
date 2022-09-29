@@ -1,0 +1,73 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Enfermedad</div>
+    <div class="ps-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 p-0">
+          <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Enfermedades</li>
+        </ol>
+      </nav>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+      <div class="d-lg-flex align-items-center mb-4 gap-3">
+        <div class="position-relative">
+          <input type="text" class="form-control ps-5 radius-30" 
+          [formControl]="BuscarForm"
+          placeholder="Buscar enfermedad"> <span
+            class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+        </div>
+        <div class="ms-auto">
+          <button
+            (click)="crearEnfermedad()"
+            class="btn btn-primary radius-30 mt-2 mt-lg-0"
+          >
+            <i class="bx bxs-plus-square"></i>Nueva Enfermedad
+          </button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Causa</th>
+              <th>Descripción</th>
+              <th>Habilitar</th>
+              <th>Fecha de Actualización</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let enfermedad of Enfermedades; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td><img alt="{{enfermedad.foto}}" src="{{url}}{{enfermedad.foto}}" height="80"/> </td>
+                <td>{{ enfermedad.nombre}} </td>
+                <td>{{ enfermedad.causas}} </td>
+                <td>{{ enfermedad.descripcion}} </td>
+                <td>
+                  <app-switch [id]="enfermedad.enfermedad_id" [estado]="enfermedad.estado" (clickEnable)="enableEnfermedad(enfermedad.enfermedad_id)"></app-switch>
+                </td>
+                <td>{{ enfermedad.fecha_actualizacion}} </td>
+                <td>
+                  <div class="d-flex order-actions">
+                    <a (click)="editModal(enfermedad.enfermedad_id)"><i class='bx bxs-edit'></i></a>
+                    <a (click)="delete(enfermedad.enfermedad_id)" class="ms-3" ><i class='bx bxs-trash'></i></a> 
+                  </div>
+                </td>
+                <td class="col-12" *ngIf="loadingScroll">
+                  <app-spinner></app-spinner>
+                </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

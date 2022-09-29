@@ -1,0 +1,105 @@
+<div class="modal-content">
+
+    <div class="modal-header">
+      <h5 class="modal-title">{{ titulo }}</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')"
+      ></button>
+    </div>
+
+    <form
+      class="row g-3 needs-validation"
+      [formGroup]="form"
+      (ngSubmit)="registrarEnfermedad(form.value)"
+      id="userform"
+      novalidate
+    >
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-md-12 form-group is-invalid">
+            <label for="nombre" class="form-label">Nombre</label>
+            
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              id="nombre"
+              formControlName="nombre"
+              placeholder="Nombre"
+              [ngClass]="{ 'is-invalid': (form.controls.nombre.touched || form.controls.nombre.dirty) && form.controls.nombre.invalid }"
+            >
+            <app-input-validator-error [control]="form.controls.nombre" [controlName]="'Nombre'"></app-input-validator-error>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 form-group is-invalid">
+              <label for="causas" class="form-label">Causa</label>
+              
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="causas"
+                formControlName="causas"
+                placeholder="Causa"
+                [ngClass]="{ 'is-invalid': (form.controls.causas.touched || form.controls.causas.dirty) && form.controls.causas.invalid }"
+              >
+              <app-input-validator-error [control]="form.controls.causas" [controlName]="'Causa'"></app-input-validator-error>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 form-group is-invalid">
+              <label for="descripcion" class="form-label">Descripción</label>
+              
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                id="descripcion"
+                formControlName="descripcion"
+                placeholder="Descripción"
+                [ngClass]="{ 'is-invalid': (form.controls.descripcion.touched || form.controls.descripcion.dirty) && form.controls.descripcion.invalid }"
+              >
+              <app-input-validator-error [control]="form.controls.descripcion" [controlName]="'Descripción'"></app-input-validator-error>
+            </div>
+        </div>
+
+        <div class="col-md-12 form-group is-invalid">
+            <label for="foto"class="form-label">Imagen</label>
+            
+            <input
+              type="file"
+              class="form-control form-control-sm"
+              id="foto"
+              accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+              formControlName="foto"
+              (change)="onSelectFile($event)"
+            >
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="activeModal.dismiss('Cross click')"
+        >Cerrar</button>
+        
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="form.invalid || isLoading"
+        >
+          <i class="lni lni-save" *ngIf="!isLoading"></i>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+  

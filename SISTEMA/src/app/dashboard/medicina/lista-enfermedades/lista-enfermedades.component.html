@@ -1,0 +1,127 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Enfermedades que cura</div>
+    <div class="ps-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 p-0">
+          <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Registrar</li>
+        </ol>
+      </nav>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form 
+            class="row g-3 needs-validation"
+            [formGroup]="form"     
+            id="enfermedades"
+            (ngSubmit)="register(form.value)"
+            novalidate      
+        >
+            <div class="mt-4 mb-5">
+                <div>
+                <h5>ENFERMEDAD</h5>
+                <hr>
+                </div>
+                <div>
+                    <!-- {{form.value|json}} -->
+                </div>
+                <div class="container">
+                    <table class="table mb-0">
+                    <thead class="table-light">
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Enfermedad</th>
+                        <th scope="col">Causa</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">foto</th>
+                        <th>
+                            <!-- Acciones -->
+                            <div class="d-flex order-actions ">
+                            <a (click)="sumarUno()" class="bg-primary text-white"><i class='bx bx-list-plus'></i></a>
+                            </div>
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>                    
+                            <tr *ngFor="let basic of enfermedades.controls; let i=index">
+                                <th scope="row">{{i+1}}</th>
+                                <td>
+                                    <ng-select
+                                    #id{{i}}
+                                    [items]="enfermedades1"
+                                    bindLabel="nombre"
+                                    bindValue="enfermedad_id"
+                                    [formControl]="basic.get('enfermedad_id')"
+                                    (change)="onClienteSelect($event,i)"
+                                    disabled
+                                    >
+                                    </ng-select>
+                                </td>
+                                <td>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    id="causas"
+                                    [formControl]="basic.get('causas')"
+                                    placeholder="Causas"
+                                    class="custom"
+                                    disabled="true"
+                                    
+                                    >
+                                </td> 
+                                <td>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    [formControl]="basic.get('descripcion')"
+                                    class="custom"
+                                    disabled="true"
+                                    >
+                                </td> 
+                                <td>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    [formControl]="basic.get('foto')"
+                                    class="custom"
+                                    disabled="true"
+                                    >
+                                </td> 
+                                <td>
+                                    <div class="d-flex order-actions">
+                                        <a (click)="restarUno(i)" class="bg-warning text-white"><i class='bx bx-minus'></i></a>                               
+                                      </div>
+                                </td>  
+                            </tr>
+                    </tbody>                  
+                    </table>
+
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <button 
+                      type="button"
+                      class="btn btn-danger btn-lg"
+                    >Cerrar</button>
+                       &nbsp;
+                </div>
+                <div class="col-md-5">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      [disabled]="form.invalid || isLoading"
+                    >
+                    
+                      <i class="lni lni-save" *ngIf="!isLoading"></i>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+                      Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
