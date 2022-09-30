@@ -29,7 +29,10 @@
   <div class="card-body">
     <div class="d-lg-flex align-items-center mb-4 gap-3">
       <div class="position-relative">
-        <input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span
+        <input type="text" class="form-control ps-5 radius-30"
+         placeholder="Buscar Usuario"
+         [formControl]="BuscarForm"
+         > <span
           class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
       </div>
       <div class="ms-auto">
@@ -55,12 +58,7 @@
           </tr>
         </thead>
         <tbody
-          infinite-scroll
-          [infiniteScrollDistance]="3"
-          [infiniteScrollUpDistance]="50"
-          (scrolled)="onScroll()"
-          (scrolledUp)="onUp()"
-          [infiniteScrollDisabled]="disableScroll"
+         
         >
           <tr *ngFor="let user of users; let i = index">
             <th scope="row">{{ i + 1 }}</th>

@@ -16,7 +16,10 @@
     <div class="card-body">
       <div class="d-lg-flex align-items-center mb-4 gap-3">
         <div class="position-relative">
-          <input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span
+          <input type="text" class="form-control ps-5 radius-30"
+         [formControl]="BuscarForm"
+          
+          placeholder="Buscar Medicina"> <span
             class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
         </div>
         <div class="ms-auto">
@@ -47,18 +50,19 @@
             <tr *ngFor="let medicina of Medicinas; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
                 <td><img alt="{{medicina.foto}}" src="{{url}}{{medicina.foto}}" height="80"/> </td>
-                <td>{{ medicina.nombres}} </td>
-                <td>{{ medicina.tipo}} </td>
-                <td>{{ medicina.descripcion}} </td>
-                <td>{{ medicina.efectos}} </td>
+                <td>{{ medicina.nombre }} </td>
+                <td>{{ medicina.tipo.nombre }} </td>
+                <td>{{ medicina.descripcion }} </td>
+                <td>{{ medicina.efectos }} </td>
                 <td>
-                  <app-switch [id]="medicina.idmedicina" [estado]="medicina.estado" (clickEnable)="enableMedicina(medicina.idmedicina)"></app-switch>
+                  <app-switch [id]="medicina.medicina_id" [estado]="medicina.estado" (clickEnable)="enableMedicina(medicina.medicina_id)"></app-switch>
                 </td>
-                <td>{{ medicina.fechaActualizacion}} </td>
+                <td>{{ medicina.fecha_actualizacion}} </td>
                 <td>
                   <div class="d-flex order-actions">
-                    <a (click)="editModal(medicina.idmedicina)"><i class='bx bxs-edit'></i></a>
-                    <a (click)="delete(medicina.idmedicina)" class="ms-3" ><i class='bx bxs-trash'></i></a> 
+                    <a (click)="editModal(medicina.medicina_id)"><i class='bx bxs-edit'></i></a>
+                    <a (click)="delete(medicina.medicina_id)" class="ms-3" ><i class='bx bxs-trash'></i></a> 
+                    <a [routerLink]="['lista-enfermedades/', medicina.medicina_id]" class="ms-3"><i class='bx bxs-add-to-queue color-green'></i></a>
                   </div>
                 </td>
                 <td class="col-12" *ngIf="loadingScroll">

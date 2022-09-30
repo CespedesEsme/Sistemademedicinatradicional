@@ -9,6 +9,7 @@ import { Rol } from 'src/app/core/model/rol.model';
 import { UserService } from 'src/app/core/service/user.service';
 import { CreateUsuarioComponent } from '../create-usuario/create-usuario.component';
 import Swal from 'sweetalert2'
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-usuario',
@@ -59,7 +60,18 @@ export class ListUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     // this.roles$ = this.basicService.getAllRoles();
+
+
     this.listarUsers(this.selectRolForm.value, this.BuscarForm.value)
+
+    this.BuscarForm.valueChanges
+    .pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    ).subscribe((res: any) => {
+      this.listarUsers(this.selectRolForm.value, this.BuscarForm.value)
+
+    });
   }
 
   // listarRoles() {
@@ -217,18 +229,26 @@ export class ListUsuarioComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
+        this.basicService.delete(id).subscribe(
+          data => {
+            swalWithBootstrapButtons.fire(
+              'Eliminado!',
+              'Su registro ha sido eliminado.',
+              'success'
+            )
+           this.listarUsers(this.rolSelected, this.currentSearchTerm);
+          },
+          error=> {
+            console.log('Error'+error.error);
+          }
         )
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
+          'Operación cancelada',
+          'La información esta a salvo.',
           'error'
         )
       }

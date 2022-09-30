@@ -53,7 +53,7 @@ export class CreateUsuarioComponent implements OnInit {
           password: '',
           email: data.email,
           nombres: data.nombres,
-          primerapellido: data.primerapellido,
+          primerApellido: data.primerApellido,
           segundoApellido: data.segundoApellido,
           fechaNacimiento: data.fechaNacimiento,
           roles: data.roles
@@ -76,7 +76,7 @@ export class CreateUsuarioComponent implements OnInit {
         '',
         [Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')]
       ],
-      primerapellido: [
+      primerApellido: [
         '',
         [Validators.required, Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')]
       ],

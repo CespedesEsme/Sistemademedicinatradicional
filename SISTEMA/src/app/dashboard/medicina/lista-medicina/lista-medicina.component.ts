@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { MedicinaService } from 'src/app/core/service/medicina.service';
 import { CrearMedicinaComponent } from '../crear-medicina/crear-medicina.component';
 import Swal from 'sweetalert2'
 import { environment } from 'src/environments/environment.prod';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lista-medicina',
@@ -15,11 +16,13 @@ import { environment } from 'src/environments/environment.prod';
 export class ListaMedicinaComponent implements OnInit {
 
   Medicinas: any;
-  url=environment.imgUrl+ "/";
+  url=environment.imgUrl;
 
   modalOptions: NgbModalOptions = {
     
   };
+  BuscarForm = new FormControl('', []);
+
 
   constructor(
     private formBuilder: FormBuilder,// trabajar con formularios
@@ -28,12 +31,24 @@ export class ListaMedicinaComponent implements OnInit {
     private MedicinaService: MedicinaService) { }
 
   ngOnInit(): void {
+   
     this.listarMedicinas();
+
+    this.BuscarForm.valueChanges
+    .pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    ).subscribe((res: any) => {
+
+      this.listarMedicinas();
+      this.Medicinas.tipo.nombre;
+
+    });
   }
 
   listarMedicinas(){
     // console.log("Cargos");
-    this.MedicinaService.getAll().subscribe(
+    this.MedicinaService.getAll({'term':this.BuscarForm.value}).subscribe(
       data => {
         this.Medicinas= data.data;
         console.log(this.Medicinas);
@@ -136,8 +151,8 @@ export class ListaMedicinaComponent implements OnInit {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
+            'Operación cancelada',
+            'La información esta a salvo.',
             'error'
           )
         }

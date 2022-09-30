@@ -4,6 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MedicinaService } from 'src/app/core/service/medicina.service';
 import { finalize } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { TipoService } from 'src/app/core/service/tipo.service';
 
 @Component({
   selector: 'app-crear-medicina',
@@ -21,42 +22,58 @@ export class CrearMedicinaComponent implements OnInit {
   isLoading = false;
   imagen: any;
   url: any;
+  tipos:any[];
   
   constructor(
     private basicService:MedicinaService,
     private formBuilder: FormBuilder,
     public activeModal: NgbActiveModal,
     private toastr: ToastrService,
+    private tipoService: TipoService
   ) { }
 
   ngOnInit(): void {
-
+    this.listaTipos();
     this.createForm();
 
       if(this.estado == true)
       {
+        this.form = this.formBuilder.group({
+          nombre: ['', Validators.required],
+          foto: [''],
+          tipo_id: ['', Validators.required],
+          descripcion: ['', Validators.required],
+          efectos: ['', Validators.required],
+          preparados: ['', Validators.required],
+          recomendaciones: ['', Validators.required],
+        });
+
         this.basicService.getById(this.id).subscribe(data => {
           console.log(data);
           //pathvalue es para rellenar datos existentes al formulario
           this.form.patchValue({
-            nombres: data.nombres,
-           // foto: data.foto,
-            tipo: data.tipo,
+            nombre: data.nombre,
+            // foto: data.foto,
+            tipo_id: data.tipo_id,
             descripcion: data.descripcion,
             efectos: data.efectos,
             preparados: data.preparados,
             recomendaciones: data.recomendaciones,
           });
+          console.log(this.form.value);
         });
       }
   }
 
-  registrarSucursal(form: any) {
+
+
+  registrarForm(form: any) {
     this.isLoading = true;
     const formData = new FormData();
-    formData.append("nombres",this.form.value.nombres);
+   
+    formData.append("nombre",this.form.value.nombre);
     formData.append("file",this.imagen);
-    formData.append("tipo",this.form.value.tipo);
+    formData.append("tipo_id",this.form.value.tipo_id);
     formData.append("descripcion",this.form.value.descripcion);
     formData.append("efectos",this.form.value.efectos);
     formData.append("preparados",this.form.value.preparados);
@@ -66,51 +83,45 @@ export class CrearMedicinaComponent implements OnInit {
     {
       formData.append("_method", "PUT");
       this.basicService
-      .createWithFile(this.id, formData)
-      .pipe(
-      finalize(() => {
-        this.form.markAsPristine();
-        this.isLoading = false;
-      })
+      .createWithFile(this.id, formData).pipe(
+        finalize(() => {
+          this.form.markAsPristine();
+          this.isLoading = false;
+        })
       )
       .subscribe(
-      data => {
-        this.toastr.success(data.succes, 'Su registro se actualizo satisfactoriamente!!');
-        this.activeModal.close(data);
-      },
-      (error: any) => {
-        this.toastr.error(error.error, 'Error');
-      }
+        data => {
+          this.toastr.success(data.succes, 'Su registro se actualizo satisfactoriamente!!');
+          this.activeModal.close(data);
+        },
+        (error: any) => {
+          this.toastr.error(error.error, 'Error');
+        }
       );
-      
-    }
-    else{
-      this.basicService
-      .create(formData)
-    .pipe(
+    } else {
+      this.basicService.create(formData).pipe(
       finalize(() => {
         this.form.markAsPristine();
         this.isLoading = false;
       })
     )
     .subscribe(
-      data => {
-        this.toastr.success(data.succes, 'Su registro se guardo satisfactoriamente!!');
-        this.activeModal.close(data);
-      },
-      (error: any) => {
-        this.toastr.error(error.error, 'Error');
-      }
-    );
-
+        data => {
+          this.toastr.success(data.succes, 'Su registro se guardo satisfactoriamente!!');
+          this.activeModal.close(data);
+        },
+        (error: any) => {
+          this.toastr.error(error.error, 'Error');
+        }
+      );
     } 
   }
 
   createForm() {
     this.form = this.formBuilder.group({
-      nombres: ['', Validators.required],
+      nombre: ['', Validators.required],
       foto: [''],
-      tipo: ['', Validators.required],
+      tipo_id: ['', Validators.required],
       descripcion: ['', Validators.required],
       efectos: ['', Validators.required],
       preparados: ['', Validators.required],
@@ -130,5 +141,15 @@ export class CrearMedicinaComponent implements OnInit {
       }
     }
   }
-
+  listaTipos(){
+    this.tipoService.getEnabledList().subscribe(
+      data =>{
+        this.tipos = data;
+        console.log('tipos',this.tipos);
+      },
+      error => {
+        console.log('Error' + error.error);
+      }
+    )
+  }
 }

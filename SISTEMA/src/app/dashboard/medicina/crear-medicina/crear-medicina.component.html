@@ -14,7 +14,7 @@
     <form
       class="row g-3 needs-validation"
       [formGroup]="form"
-      (ngSubmit)="registrarSucursal(form.value)"
+      (ngSubmit)="registrarForm(form.value)"
       id="userform"
       novalidate
     >
@@ -22,80 +22,86 @@
         
         <div class="row">
           <div class="col-md-12 form-group is-invalid">
-            <label for="nombres" class="form-label">Nombre</label> 
+            <label for="nombre" class="form-label">Nombre</label> 
             <input
               type="text"
               class="form-control form-control-sm"
-              id="nombres"
-              formControlName="nombres"
-              placeholder="nombre"
-              [ngClass]="{ 'is-invalid': (form.controls.nombres.touched || form.controls.nombres.dirty) && form.controls.nombres.invalid }"
+              id="nombre"
+              formControlName="nombre"
+              placeholder="Nombre"
+              [ngClass]="{ 'is-invalid': (form.controls.nombre.touched || form.controls.nombre.dirty) && form.controls.nombre.invalid }"
             >
-            <app-input-validator-error [control]="form.controls.nombres" [controlName]="'Nombre de Medicina'"></app-input-validator-error>
+            <app-input-validator-error [control]="form.controls.nombre" [controlName]="'Nombre'"></app-input-validator-error>
           </div>
 
-          <div class="col-md-12 form-group is-invalid">
-            <label for="tipo" class="form-label">Tipo</label>
-            <input
-              type="text"
-              class="form-control form-control-sm"
-              id="tipo"
-              formControlName="tipo"
-              placeholder="tipo"
-              [ngClass]="{ 'is-invalid': (form.controls.tipo.touched || form.controls.tipo.dirty) && form.controls.tipo.invalid }"
-            >
-            <app-input-validator-error [control]="form.controls.tipo" [controlName]="'Tipo de Medicina'"></app-input-validator-error>
+          <div class="col-md-6 form-group">
+            <label for="tipo_id" class="form-label">Tipo</label>
+            <div class="input-group">
+              <select
+                class="single-select form-select form-select-sm"
+                formControlName="tipo_id"
+                [ngClass]="{ 'is-invalid': 
+                (form.controls.tipo_id.touched 
+                || form.controls.tipo_id.dirty) 
+                && form.controls.tipo_id.invalid }"
+                >
+                <option *ngFor="let tipo of tipos" 
+                [value]="tipo.tipo_id">{{tipo.nombre}}</option>
+              </select>
+            </div>
+            <app-input-validator-error [control]="form.controls.tipo_id"
+            [controlName]="'Tipo'"></app-input-validator-error>
           </div>
 
-          <div class="col-md-12 form-group is-invalid">
+          <div class="col-md-6 form-group is-invalid">
             <label for="efectos" class="form-label">Efectos</label>
             <input
               type="text"
               class="form-control form-control-sm"
               id="efectos"
               formControlName="efectos"
-              placeholder="efectos"
+              placeholder="Efectos"
               [ngClass]="{ 'is-invalid': (form.controls.efectos.touched || form.controls.efectos.dirty) && form.controls.efectos.invalid }"
             >
-            <app-input-validator-error [control]="form.controls.efectos" [controlName]="'Efectos de Medicina'"></app-input-validator-error>
+            <app-input-validator-error [control]="form.controls.efectos" [controlName]="'Efectos'"></app-input-validator-error>
           </div>
 
-          <div class="col-md-12 form-group is-invalid">
+          <div class="col-md-6 form-group is-invalid">
             <label for="preparados" class="form-label">Preparado</label>
             <input
               type="text"
               class="form-control form-control-sm"
               id="preparados"
               formControlName="preparados"
-              placeholder="preparado"
+              placeholder="Preparado"
               [ngClass]="{ 'is-invalid': (form.controls.preparados.touched || form.controls.preparados.dirty) && form.controls.preparados.invalid }"
             >
-            <app-input-validator-error [control]="form.controls.preparados" [controlName]="'Preparado de Medicina'"></app-input-validator-error>
+            <app-input-validator-error [control]="form.controls.preparados" [controlName]="'Preparado'"></app-input-validator-error>
           </div>
-          <div class="col-md-12 form-group is-invalid">
+          <div class="col-md-6 form-group is-invalid">
             <label for="recomendaciones" class="form-label">Recomendación</label>
             <input
               type="text"
               class="form-control form-control-sm"
               id="recomendaciones"
               formControlName="recomendaciones"
-              placeholder="recomendaciones"
+              placeholder="Recomendaciones"
               [ngClass]="{ 'is-invalid': (form.controls.recomendaciones.touched || form.controls.recomendaciones.dirty) && form.controls.recomendaciones.invalid }"
             >
-            <app-input-validator-error [control]="form.controls.recomendaciones" [controlName]="'Recomendación de Medicina'"></app-input-validator-error>
+            <app-input-validator-error [control]="form.controls.recomendaciones" [controlName]="'Recomendación'"></app-input-validator-error>
           </div>
 
           <div class="col-md-12 form-group is-invalid">
             <label for="descripcion" class="form-label">Descripción</label>
-            <textarea
+            <input
               type="text"
               class="form-control form-control-sm"
               id="descripcion"
               formControlName="descripcion"
-              placeholder="descripción"
+              placeholder="Descripción"
               [ngClass]="{ 'is-invalid': (form.controls.descripcion.touched || form.controls.descripcion.dirty) && form.controls.descripcion.invalid }"
-            ></textarea>
-            <app-input-validator-error [control]="form.controls.descripcion" [controlName]="'Descripción de Medicina'"></app-input-validator-error>
+            >
+            <app-input-validator-error [control]="form.controls.descripcion" [controlName]="'Descripción'"></app-input-validator-error>
           </div>
 
           <div class="col-md-12 form-group is-invalid">
@@ -107,7 +113,9 @@
               accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
               formControlName="foto"
               (change)="onSelectFile($event)"
+              [ngClass]="{ 'is-invalid': (form.controls.foto.touched || form.controls.foto.dirty) && form.controls.foto.invalid }"
             >
+            <app-input-validator-error [control]="form.controls.foto" [controlName]="'Archivo de Imagen'"></app-input-validator-error>
           </div>
 
         </div>

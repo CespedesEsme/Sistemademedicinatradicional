@@ -5,20 +5,24 @@ import { ListaMedicinaComponent } from './lista-medicina/lista-medicina.componen
 import { CrearMedicinaComponent } from './crear-medicina/crear-medicina.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ListaEnfermedadesComponent } from './lista-enfermedades/lista-enfermedades.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
 @NgModule({
   declarations: [
     ListaMedicinaComponent,
-    CrearMedicinaComponent
+    CrearMedicinaComponent,
+    ListaEnfermedadesComponent
   ],
   imports: [
     CommonModule,
     MedicinaRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ComponentsModule
+    ComponentsModule,
+    NgSelectModule
   ]
 })
 export class MedicinaModule { }
