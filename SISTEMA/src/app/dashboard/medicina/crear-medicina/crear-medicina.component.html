@@ -53,54 +53,54 @@
             [controlName]="'Tipo'"></app-input-validator-error>
           </div>
 
-          <div class="col-md-6 form-group is-invalid">
+          <div class="col-md-12 form-group is-invalid">
             <label for="efectos" class="form-label">Efectos</label>
-            <input
+            <textarea
               type="text"
               class="form-control form-control-sm"
               id="efectos"
               formControlName="efectos"
               placeholder="Efectos"
               [ngClass]="{ 'is-invalid': (form.controls.efectos.touched || form.controls.efectos.dirty) && form.controls.efectos.invalid }"
-            >
+            ></textarea>
             <app-input-validator-error [control]="form.controls.efectos" [controlName]="'Efectos'"></app-input-validator-error>
           </div>
 
-          <div class="col-md-6 form-group is-invalid">
+          <div class="col-md-12 form-group is-invalid">
             <label for="preparados" class="form-label">Preparado</label>
-            <input
+            <textarea
               type="text"
               class="form-control form-control-sm"
               id="preparados"
               formControlName="preparados"
               placeholder="Preparado"
               [ngClass]="{ 'is-invalid': (form.controls.preparados.touched || form.controls.preparados.dirty) && form.controls.preparados.invalid }"
-            >
+            ></textarea>
             <app-input-validator-error [control]="form.controls.preparados" [controlName]="'Preparado'"></app-input-validator-error>
           </div>
-          <div class="col-md-6 form-group is-invalid">
+          <div class="col-md-12 form-group is-invalid">
             <label for="recomendaciones" class="form-label">Recomendación</label>
-            <input
+            <textarea
               type="text"
               class="form-control form-control-sm"
               id="recomendaciones"
               formControlName="recomendaciones"
               placeholder="Recomendaciones"
               [ngClass]="{ 'is-invalid': (form.controls.recomendaciones.touched || form.controls.recomendaciones.dirty) && form.controls.recomendaciones.invalid }"
-            >
+            ></textarea>
             <app-input-validator-error [control]="form.controls.recomendaciones" [controlName]="'Recomendación'"></app-input-validator-error>
           </div>
 
           <div class="col-md-12 form-group is-invalid">
             <label for="descripcion" class="form-label">Descripción</label>
-            <input
+            <textarea
               type="text"
               class="form-control form-control-sm"
               id="descripcion"
               formControlName="descripcion"
               placeholder="Descripción"
               [ngClass]="{ 'is-invalid': (form.controls.descripcion.touched || form.controls.descripcion.dirty) && form.controls.descripcion.invalid }"
-            >
+            ></textarea>
             <app-input-validator-error [control]="form.controls.descripcion" [controlName]="'Descripción'"></app-input-validator-error>
           </div>
 
