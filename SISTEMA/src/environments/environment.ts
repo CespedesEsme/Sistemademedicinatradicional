@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   serverBaseUrl: 'http://localhost/bkunimetra/public/api',
   serverUrl: 'http://localhost/bkunimetra/public/api',
-  imgUrl: 'http://localhost/bkunimetra/public'
+  imgUrl: 'http://localhost/bkunimetra/public/'
 };
 
 /*
