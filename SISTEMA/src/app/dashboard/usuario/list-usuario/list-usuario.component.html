@@ -50,7 +50,6 @@
           <tr>
             <th>#</th>
             <th>Nombre Completo</th>
-            <th>Cargo</th>
             <th>Fecha de Nacimiento</th>
             <th>Roles</th>
             <th>Habilitar</th>
@@ -63,7 +62,7 @@
           <tr *ngFor="let user of users; let i = index">
             <th scope="row">{{ i + 1 }}</th>
             <td>{{ user.nombre_completo }}</td>
-            <td>{{ user.cargo }}</td>
+            
             <td>{{ user.fechaNacimiento }}</td>
             <td>
               <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3" *ngFor="let rol of user.roles">
