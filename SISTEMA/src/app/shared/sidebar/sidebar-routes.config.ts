@@ -5,7 +5,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/dashboard/e-commerce', title: 'Inicio', icon: 'bx bx-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [], roles: ['administrador',"naturista"] },
   { path: '/dashboard/usuario/list-usuario', title: 'Usuarios', icon: 'bx bx-cookie', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [], roles: ['administrador'] },
   {
-    path: '', title: 'Menu', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, roles: ['administrador',"naturista"], submenu: [
+    path: '', title: 'Panel Principal', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, roles: ['administrador',"naturista"], submenu: [
       // { path: '/dashboard/e-commerce', title: 'eCommerce', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
       // { path: '/dashboard/analytics', title: 'Analytics', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
       // { path: '/dashboard/categorias', title: 'Categorias', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
@@ -17,12 +17,14 @@ export const ROUTES: RouteInfo[] = [
    
     ]
   },
-  // {
-  //   path: '', title: 'Dashboard', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-  //     { path: '/dashboard/e-commerce', title: 'eCommerce', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-  //     { path: '/dashboard/analytics', title: 'Analytics', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-  //   ]
-  // },
+  {
+    path: '', title: 'Reportes', icon: 'bx bxs-report', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+      { path: '/dashboard/reportes/enfermedades', title: 'Enfermedades', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+      { path: '/dashboard/naturistas/aportes', title: 'Aportes Naturistas', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+      { path: '/dashboard/rating/medicinas', title: 'Clasificacion Medicinas', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+      { path: '/dashboard/medicinas/populares', title: 'Medicinas Populares', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    ]
+  },
   // {
   //   path: '', title: 'Application', icon: 'bx bx-category', class: 'sub', badge: '', badgeClass: '', isExternalLink: false,
   //   submenu: [

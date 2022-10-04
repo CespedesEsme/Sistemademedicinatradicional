@@ -41,7 +41,6 @@ export class ListaMedicinaComponent implements OnInit {
     ).subscribe((res: any) => {
 
       this.listarMedicinas();
-      this.Medicinas.tipo.nombre;
 
     });
   }

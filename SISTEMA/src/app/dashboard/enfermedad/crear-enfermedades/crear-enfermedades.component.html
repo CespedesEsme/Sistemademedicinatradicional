@@ -40,14 +40,14 @@
             <div class="col-md-12 form-group is-invalid">
               <label for="causas" class="form-label">Causa</label>
               
-              <textarea
+              <input
                 type="text"
                 class="form-control form-control-sm"
                 id="causas"
                 formControlName="causas"
                 placeholder="Causa"
                 [ngClass]="{ 'is-invalid': (form.controls.causas.touched || form.controls.causas.dirty) && form.controls.causas.invalid }"
-              ></textarea>
+              >
               <app-input-validator-error [control]="form.controls.causas" [controlName]="'Causa'"></app-input-validator-error>
             </div>
         </div>
@@ -56,14 +56,14 @@
             <div class="col-md-12 form-group is-invalid">
               <label for="descripcion" class="form-label">Descripción</label>
               
-              <textarea
+              <input
                 type="text"
                 class="form-control form-control-sm"
                 id="descripcion"
                 formControlName="descripcion"
                 placeholder="Descripción"
                 [ngClass]="{ 'is-invalid': (form.controls.descripcion.touched || form.controls.descripcion.dirty) && form.controls.descripcion.invalid }"
-              ></textarea>
+              >
               <app-input-validator-error [control]="form.controls.descripcion" [controlName]="'Descripción'"></app-input-validator-error>
             </div>
         </div>

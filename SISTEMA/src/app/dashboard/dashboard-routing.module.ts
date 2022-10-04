@@ -57,7 +57,11 @@ const routes: Routes = [
   { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
   { path: 'medicina', loadChildren: () => import('./medicina/medicina.module').then(m => m.MedicinaModule) },
   { path: 'tipo', loadChildren: () => import('./tipo/tipo.module').then(m => m.TipoModule) },
-  { path: 'enfermedad', loadChildren: () => import('./enfermedad/enfermedad.module').then(m => m.EnfermedadModule) }
+  { path: 'enfermedad', loadChildren: () => import('./enfermedad/enfermedad.module').then(m => m.EnfermedadModule) },
+  { path: 'reportes', loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule) },
+  { path: 'naturistas', loadChildren: () => import('./naturistas/naturistas.module').then(m => m.NaturistasModule) },
+  { path: 'rating', loadChildren: () => import('./rating-medicinas/rating-medicinas.module').then(m => m.RatingMedicinasModule) },
+  { path: 'medicinas', loadChildren: () => import('./medicinas-buscadas/medicinas-buscadas.module').then(m => m.MedicinasBuscadasModule) },
 ];
 
 @NgModule({

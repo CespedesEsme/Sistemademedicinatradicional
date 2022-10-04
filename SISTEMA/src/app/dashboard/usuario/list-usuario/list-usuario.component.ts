@@ -151,7 +151,7 @@ export class ListUsuarioComponent implements OnInit {
     );
     modal.componentInstance.userId = id;
     modal.componentInstance.estado = true;
-    modal.componentInstance.title = 'Editar Usuario';
+    modal.componentInstance.title = 'Editar Cliente';
     modal.result.then(result => {
       if (result) {
         this.listarUsers(this.rolSelected, this.currentSearchTerm);
