@@ -5,7 +5,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/dashboard/e-commerce', title: 'Inicio', icon: 'bx bx-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [], roles: ['administrador',"naturista"] },
   { path: '/dashboard/usuario/list-usuario', title: 'Usuarios', icon: 'bx bx-cookie', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [], roles: ['administrador'] },
   {
-    path: '', title: 'Menu', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, roles: ['administrador',"naturista"], submenu: [
+    path: '', title: 'Panel Principal', icon: 'bx bx-home-circle', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, roles: ['administrador',"naturista"], submenu: [
       // { path: '/dashboard/e-commerce', title: 'eCommerce', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
       // { path: '/dashboard/analytics', title: 'Analytics', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
       // { path: '/dashboard/categorias', title: 'Categorias', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
