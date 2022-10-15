@@ -84,7 +84,7 @@ export class ListUsuarioComponent implements OnInit {
   //       console.log('error' + error);
   //     }
   //   );
-  // }
+  // } 
 
   listarUsers(rol: any, search: any) {
     this.loadingScroll = true;
