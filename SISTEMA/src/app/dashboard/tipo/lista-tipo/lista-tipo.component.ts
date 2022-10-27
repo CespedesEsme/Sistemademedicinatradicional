@@ -18,7 +18,7 @@ export class ListaTipoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private modalService: NgbModal, // mostrar una ventana emergente modal 
+    private modalService: NgbModal, // mostrar una ventana emergente modal
     private toastr: ToastrService, // mensajes de confirmacion
     private basicService: TipoService
   ) { }

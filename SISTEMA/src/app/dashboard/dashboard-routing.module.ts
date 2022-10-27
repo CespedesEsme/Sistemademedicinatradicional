@@ -62,6 +62,7 @@ const routes: Routes = [
   { path: 'naturistas', loadChildren: () => import('./naturistas/naturistas.module').then(m => m.NaturistasModule) },
   { path: 'rating', loadChildren: () => import('./rating-medicinas/rating-medicinas.module').then(m => m.RatingMedicinasModule) },
   { path: 'medicinas', loadChildren: () => import('./medicinas-buscadas/medicinas-buscadas.module').then(m => m.MedicinasBuscadasModule) },
+  { path: 'rango', loadChildren: () => import('./medicinas-rangos/medicinas-rangos.module').then(m => m.MedicinasRangosModule) },
 ];
 
 @NgModule({

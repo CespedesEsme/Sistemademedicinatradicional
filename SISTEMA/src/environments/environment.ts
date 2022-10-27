@@ -1,13 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`. 
+// The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   env: 'DEFAULT',
   production: false,
-  serverBaseUrl: 'http://localhost/bkunimetra/public/api',
-  serverUrl: 'http://localhost/bkunimetra/public/api',
-  imgUrl: 'http://localhost/bkunimetra/public/'
+  serverBaseUrl: 'http://bkusuarios.appsbo.com/public/api',
+  serverUrl: 'http://bkusuarios.appsbo.com/public/api',
+  imgUrl: 'http://bkusuarios.appsbo.com/public/'
 };
 
 /*

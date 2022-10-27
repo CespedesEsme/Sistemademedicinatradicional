@@ -10,8 +10,6 @@
       </nav>
     </div>
 </div>
-
-
 <div class="card">
     <div class="card-body">
       <div class="d-lg-flex align-items-center mb-4 gap-3">
@@ -23,11 +21,24 @@
         </div>
         <button
         (click)="generatePDF()"
-        class="btn btn-sm btn-info text-white"
+        class="btn btn-sm btn-info text-white ms-auto"
         style="padding: 0px 5px; border-radius: 8px;"
       >
         <i class='bx bx-printer' style="margin: 0px;"></i>
       </button>
+      <div>
+            <ng-select
+                #id{{i}}
+                [items]="rangos"
+                bindLabel="label"
+                bindValue="value"
+                [formControl]="rango"
+                disabled
+                style="width: 180px;"
+                (change)="Onrangos($event)"
+            >
+            </ng-select>
+      </div>
       </div>
       <div class="table-responsive">
         <table class="table mb-0">
@@ -41,12 +52,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let medicina of populares; let i = index">
+            <tr *ngFor="let medicina of medicinas; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
                 <td><img alt="{{medicina.foto}}" src="{{url}}{{medicina.foto}}" height="80"/> </td>
                 <td>{{ medicina.nombre }} </td>
                 <td>{{ medicina.descripcion }} </td>
-                <td><i class="bx bxs-show"></i> {{ medicina.count_acceso }} </td>
+                <td><i class="bx bxs-show"></i> {{ medicina.total }} </td>
 
                 <td class="col-12" *ngIf="loadingScroll">
                   <app-spinner></app-spinner>

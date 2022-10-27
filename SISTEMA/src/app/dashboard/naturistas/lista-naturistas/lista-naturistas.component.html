@@ -51,9 +51,9 @@
                     <li *ngFor="let medicina of item.medicinas">
                         {{medicina.nombre}}
                     </li>
+                    <li *ngIf="item.nro_medicinas<=0">Ninguno</li>
                   </ul>
                 </td>
-                <td *ngIf="item.nro_medicinas<=0">Ninguno</td>
            </tr>
 
           </tbody>

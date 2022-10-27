@@ -59,9 +59,21 @@ export class ReportesService extends BaseAPIClass {
     return this.httpClient.get(this.baseUrl + '/aportes-pdf', { responseType: 'blob',});
   }
 
+  getMedicinaVisitas(term, rango):Observable<any>{
+    return this.httpClient.get(this.baseUrl + '/medicinas-visitas?term='+term+'&rango='+rango);
+  }   
+  getMedicinaVisitasChart(term, rango):Observable<any>{
+    return this.httpClient.get(this.baseUrl + '/medicinas-visitas-chart?term='+term+'&rango='+rango);
+  }
 
+  getMedicinaVisitasPdf(term, rango):Observable<any>{
+    return this.httpClient.get(this.baseUrl + '/medicinas-visitas-pdf?term='+term+'&rango='+rango,{ responseType: 'blob',});
+  }
 
-
+  getRango(){
+    return this.httpClient.get(this.baseUrl + '/rango-visitas');
+  }
+   
 
 
 }

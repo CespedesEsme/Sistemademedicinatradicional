@@ -91,7 +91,7 @@ export class CrearMedicinaComponent implements OnInit {
       )
       .subscribe(
         data => {
-          this.toastr.success(data.succes, 'Su registro se actualizo satisfactoriamente!!!');
+          this.toastr.success(data.succes, 'Su registro se actualizo satisfactoriamente!!');
           this.activeModal.close(data);
         },
         (error: any) => {
@@ -107,7 +107,7 @@ export class CrearMedicinaComponent implements OnInit {
     )
     .subscribe(
         data => {
-          this.toastr.success(data.succes, 'Su registro se guardo satisfactoriamente!!!');
+          this.toastr.success(data.succes, 'Su registro se guardo satisfactoriamente!!');
           this.activeModal.close(data);
         },
         (error: any) => {

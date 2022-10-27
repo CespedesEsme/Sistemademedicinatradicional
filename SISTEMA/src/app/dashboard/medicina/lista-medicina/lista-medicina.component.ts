@@ -25,7 +25,7 @@ export class ListaMedicinaComponent implements OnInit {
 
 
   constructor(
-    private formBuilder: FormBuilder,// trabajar con formularios 
+    private formBuilder: FormBuilder,// trabajar con formularios
     private modalService: NgbModal, // mostrar una ventana emergente modal
     private toastr: ToastrService, // mensajes de confirmacion
     private MedicinaService: MedicinaService) { }

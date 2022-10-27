@@ -62,7 +62,6 @@ export class ListaNaturistasComponent implements OnInit {
         data:{
           labels: this.label,
           datasets: [{
-            label: '# of Votes',
             data: this.data,
             backgroundColor: [
                 'rgba(255, 99, 132)',
@@ -71,7 +70,8 @@ export class ListaNaturistasComponent implements OnInit {
                 'rgba(75, 192, 192)',
                 'rgba(153, 102, 255)',
                 'rgba(255, 159, 64)'
-            ]
+            ],
+            
           }]
         }
       })

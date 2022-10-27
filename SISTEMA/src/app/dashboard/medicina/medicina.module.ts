@@ -21,8 +21,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MedicinaRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ComponentsModule,
-    NgSelectModule
+    NgSelectModule,
+    ComponentsModule,  
   ]
 })
 export class MedicinaModule { }
